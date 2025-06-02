@@ -31,8 +31,8 @@ app.post('/save-subscription', (req, res) => {
 });
 
 app.get('/send-notification', (req, res) => {
-    // webpush.sendNotification(subDataBase[0], `Уведомление от сервера. Текущее время: ${String(new Date())}`);
-    webpush.sendNotification(subDataBase[0], "Hello from server!");
+    webpush.sendNotification(subDataBase[0], `Уведомление от сервера. Текущее время: ${String(new Date())}`);
+    // webpush.sendNotification(subDataBase[0], "Hello from server!");
 
     res.json({
         "status": "Success",

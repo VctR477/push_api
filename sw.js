@@ -29,6 +29,12 @@ self.addEventListener('activate', async () => {
     console.log(response);
 });
 
+self.addEventListener('push', (event) => {
+    self.registration.showNotification('Урааа!', {
+        body: event.data.text(),
+    });
+});
+
 // Public Key:
 // BEiyKu8QL3LsskG70KRqN2B8Xg4EkfzuoAoWQSqmVdyUut45FoAW5GwQMuH3HSVdaHlRTKuIscSfbM3OVsjaS_o
 
