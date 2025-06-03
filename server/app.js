@@ -31,8 +31,13 @@ app.post('/save-subscription', (req, res) => {
 });
 
 app.get('/send-notification', (req, res) => {
-    webpush.sendNotification(subDataBase[0], `Уведомление от сервера. Текущее время: ${String(new Date())}`);
-    // webpush.sendNotification(subDataBase[0], "Hello from server!");
+    const message = {
+        title: 'Hello from server!',
+        body: 'Какой-то длинный текст...',
+        icon: "https://avatars.mds.yandex.net/i?id=50420ff224a169986c87220e610af286648eb3d7-9049934-images-thumbs&n=13",
+    };
+
+    webpush.sendNotification(subDataBase[0], JSON.stringify(message));
 
     res.json({
         "status": "Success",

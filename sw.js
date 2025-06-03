@@ -30,8 +30,15 @@ self.addEventListener('activate', async () => {
 });
 
 self.addEventListener('push', (event) => {
-    self.registration.showNotification('Урааа!', {
-        body: event.data.text(),
+    const {
+        title,
+        body,
+        icon,
+    } = JSON.parse(event.data.text());
+
+    self.registration.showNotification(title, {
+        body,
+        icon,
     });
 });
 
